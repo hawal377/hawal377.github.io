@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEGA EARN ENERGY SOLUTION</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#ffd600;color:#444}
+.page{max-width:520px;margin:auto;background:#ffd600;min-height:100vh;box-shadow:0 0 12px #ddd}
+header{padding:14px 16px;text-align:center;font-weight:800;font-size:21px;color:#8a6500;background:#ffd600}
+.mega-logo{display:inline-flex;align-items:center;gap:10px;font-weight:900;font-size:24px;color:#168f4b}
+.mega-logo-mark{width:46px;height:46px;border-radius:50%;background:#168f4b;color:#ffd600;display:inline-flex;align-items:center;justify-content:center;font-size:25px;font-weight:900;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+.mega-logo-text{text-align:left;line-height:1}
+.mega-logo-text small{display:block;font-size:10px;letter-spacing:2px;color:#555;margin-top:5px}
+.screen{padding:18px;background:#ffd600}
+h1{font-size:28px;text-align:center;margin:15px 0 30px;color:#555}
+input{width:100%;padding:17px;border:1px solid #ddd;border-radius:13px;margin-bottom:14px;font-size:16px;outline:none}
+input:focus{border-color:#f28c00}
+.phone-row{display:flex;gap:8px;margin-bottom:14px}
+.country-select{width:43%;padding:17px 10px;border:1px solid #ddd;border-radius:13px;background:#fff;font-size:14px;outline:none}
+.phone-input{width:57%;margin-bottom:0}
+button{border:0;border-radius:12px;padding:16px;width:100%;font-size:17px;font-weight:700;cursor:pointer}
+.primary{background:#20b968;color:white}
+.secondary{background:#f28c00;color:white}
+.link{text-align:center;margin-top:20px;font-size:16px}
+.link a{color:#159bd3;text-decoration:none;font-weight:700;cursor:pointer}
+.hidden{display:none}
+.signup-home{background:#ffd600;min-height:100vh;margin:0;padding:30px 18px}
+.signup-home h1{color:#222}
+
+.banner{
+height:205px;border-radius:10px;
+background:linear-gradient(135deg,#ff9b00,#ffd34e,#ff7411);
+display:flex;align-items:center;justify-content:center;text-align:center;
+color:#fff;font-size:27px;font-weight:900;padding:20px;
+overflow:hidden;
+}
+.banner small{display:block;font-size:14px;margin-top:8px;font-weight:500}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.quick button{background:#fff;color:#e99a22;padding:13px 5px;font-size:12px;box-shadow:0 2px 10px #eee}
+.quick .ico{font-size:24px;display:block;margin-bottom:6px}
+
+.card{background:#fff;border-radius:15px;padding:14px;margin:15px 0;box-shadow:0 2px 12px #e8e8e8}
+.product{display:flex;gap:14px;align-items:stretch}
+.product-img{width:42%;min-height:170px;border-radius:10px;background:linear-gradient(135deg,#e32c19,#ff8c00);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:900;text-align:center}
+.details{flex:1;border:1px dashed #e6c768;padding:9px;font-size:13px}
+.details p{margin:0;padding:10px 0;border-bottom:1px dotted #ddd;display:flex;justify-content:space-between;gap:8px}
+.details p:last-child{border:0}
+.buy{margin-top:10px;background:#ff8500;color:#fff}
+
+.balance{background:#fff8e9;border-radius:12px;padding:16px;text-align:center;margin-bottom:12px}
+.balance strong{display:block;font-size:28px;color:#f28c00;margin-top:5px}
+
+nav{position:sticky;bottom:0;background:#fff;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #eee;padding:8px 4px}
+nav button{background:transparent;color:#777;padding:8px 2px;font-size:11px}
+nav button.active{color:#f28c00}
+nav .ico{font-size:21px;display:block;margin-bottom:3px}
+
+
+.bank-page{background:#ffd600;min-height:100vh;padding:18px}
+.bank-card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 3px 14px #e5d27a;margin:14px 0}
+.bank-back{background:#555;color:#fff;margin-bottom:14px}
+.bank-select{width:100%;padding:16px;border:1px solid #ddd;border-radius:13px;background:#fff;font-size:16px;margin-bottom:14px}
+.verify-status{display:none;border-radius:12px;padding:13px;margin:12px 0;font-size:14px}
+.verify-status.loading{display:block;background:#fff8df;color:#8a6500}
+.verify-status.success{display:block;background:#e7f8ed;color:#137a3f}
+.verify-status.error{display:block;background:#ffe8e8;color:#a11d1d}
+.account-name{font-size:20px;font-weight:800;margin-top:5px}
+
+.notice{padding:12px;border-radius:10px;background:#fff3cd;color:#795b00;font-size:13px;margin-bottom:15px}
+.logout{margin-top:15px;background:#555;color:#fff}
+ .profile-page{background:#f5f7f6;min-height:calc(100vh - 70px)}
+.profile-balance{margin:0 16px 18px;background:linear-gradient(135deg,#b9c4c1,#f5f5f5);border-radius:0 0 24px 24px;overflow:hidden;box-shadow:0 2px 10px #ddd}
+.profile-balance .top{padding:28px 20px 26px}
+.profile-balance .label{font-size:18px;font-weight:700}
+.profile-balance .amount{font-size:32px;font-weight:800;margin-top:8px;color:#111}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;padding:24px 8px;text-align:center}
+.stats strong{display:block;font-size:21px;color:#111}.stats span{font-size:15px;color:#777}
+.section-title{font-size:22px;font-weight:800;margin:24px 16px 14px;padding-left:18px;position:relative}
+.section-title:before{content:"";position:absolute;left:0;top:2px;height:25px;width:6px;border-radius:5px;background:#20b968}
+.quick-profile{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:#fff;margin:0 16px;border-radius:22px;padding:28px 12px;text-align:center;box-shadow:0 2px 10px #eee}
+.quick-profile button{background:transparent;color:#20a85d;padding:4px;font-size:14px}
+.quick-profile .qico{display:block;margin:0 auto 12px;background:#e3f8ec;border-radius:18px;width:62px;height:62px;line-height:62px;font-size:27px}
+.profile-list{background:#fff;margin:22px 16px 0;border-radius:22px;overflow:hidden;box-shadow:0 2px 10px #eee}
+.profile-list button{width:100%;background:#fff;color:#209f59;text-align:left;border-radius:0;border-bottom:1px solid #eee;padding:20px 22px;font-size:18px}
+.profile-list button:last-child{border-bottom:0}
+.profile-list .liico{display:inline-flex;width:48px;height:48px;border-radius:50%;background:#e3f8ec;align-items:center;justify-content:center;margin-right:18px;font-size:22px}
+.profile-nav{position:sticky;bottom:0;background:#fff;display:grid;border-top:1px solid #eee;padding:8px 4px}
+.profile-nav button{background:transparent;color:#777;padding:8px 2px;font-size:12px}
+.profile-nav button.active{color:#20b968}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header></header>
+
+<!-- REGISTER -->
+<section id="register" class="screen signup-home">
+<div style="text-align:center;margin-bottom:8px">
+  <div class="mega-logo">
+    <span class="mega-logo-mark">M</span>
+    <span class="mega-logo-text">MEGA EARN<small>ENERGY SOLUTION</small></span>
+  </div>
+</div>
+<h1>REGISTER</h1>
+<input id="regFirstName" placeholder="First Name">
+<input id="regLastName" placeholder="Last Name">
+
+<div class="phone-row">
+  <select id="countryCode" class="country-select" aria-label="Country code">
+    <option value="+234" selected>🇳🇬 NG +234</option>
+  </select>
+  <input id="regPhone" class="phone-input" placeholder="Phone Number" type="tel">
+</div>
+
+<input id="regEmail" placeholder="Email Address" type="email">
+<input id="regPassword" placeholder="Password" type="password">
+<button class="primary" onclick="register()">REGISTER</button>
+
+<div class="link">Already have account? <a onclick="show('login')">Login</a></div>
+</section>
+
+<!-- LOGIN -->
+<section id="login" class="screen hidden">
+<div style="text-align:center;margin-bottom:18px">
+  <div class="mega-logo" style="justify-content:center">
+    <span class="mega-logo-mark">M</span>
+    <span class="mega-logo-text">MEGA EARN<small>ENERGY SOLUTION</small></span>
+  </div>
+</div>
+
+<h1>LOGIN</h1>
+<input id="loginEmail" placeholder="Email Address" type="email">
+<input id="loginPassword" placeholder="Password" type="password">
+<button class="primary" onclick="login()">LOGIN</button>
+<div class="link">Don't have an account? <a onclick="show('register')">Register</a></div>
+</section>
+
+<!-- DEPOSIT PAGE -->
+<section id="depositPage" class="screen hidden">
+  <h1>Deposit now</h1>
+  <div class="card" style="text-align:center;padding:25px">
+    <div style="font-size:18px;margin-bottom:15px">Make your payment to:</div>
+    <div style="font-size:28px;font-weight:800;color:#f28c00;margin:10px 0">8141106016</div>
+    <div style="font-size:20px;font-weight:700;margin-bottom:20px">Palmpay</div>
+    <div class="notice">After making your deposit, keep your payment receipt for confirmation.</div>
+    <button class="secondary" onclick="backToDashboard()">Back to Dashboard</button>
+  </div>
+</section>
+
+<!-- SERVICE PAGE -->
+<section id="servicePage" class="screen hidden">
+  <h1>Service</h1>
+  <div class="card" style="text-align:center;padding:30px">
+    <div style="font-size:22px;font-weight:700;color:#555;margin-bottom:25px">Join my channel</div>
+    <button class="secondary" onclick="backToDashboard()">Back to Dashboard</button>
+  </div>
+</section>
+
+<!-- BANK ACCOUNT / WITHDRAWAL PAGE -->
+<section id="withdrawPage" class="hidden bank-page">
+  <button class="bank-back" onclick="backToDashboard()">← Back to Dashboard</button>
+  <h1 style="margin:10px 0 18px;color:#333">Bank Account</h1>
+
+  <div class="bank-card">
+    <div style="font-size:15px;color:#777;margin-bottom:8px">Amount to withdraw</div>
+    <input id="withdrawAmount" type="number" min="700" step="1" inputmode="numeric" placeholder="Enter amount (minimum ₦700)" oninput="checkAccountReady()">
+    <div id="withdrawAmountStatus" style="font-size:12px;color:#777;margin:-6px 0 14px;line-height:1.4">Minimum withdrawal: ₦700</div>
+
+    <div style="font-size:15px;color:#777;margin-bottom:8px">Select your bank</div>
+    <select id="bankSelect" class="bank-select" onchange="checkAccountReady()">
+      <option value="">Select Bank</option>
+      <option value="044">Access Bank</option>
+      <option value="063">Access Bank (Diamond)</option>
+      <option value="050">Ecobank Nigeria</option>
+      <option value="084">Enterprise Bank</option>
+      <option value="070">Fidelity Bank</option>
+      <option value="011">First Bank of Nigeria</option>
+      <option value="214">First City Monument Bank (FCMB)</option>
+      <option value="058">Guaranty Trust Bank (GTBank)</option>
+      <option value="030">Heritage Bank</option>
+      <option value="301">Jaiz Bank</option>
+      <option value="082">Keystone Bank</option>
+      <option value="076">Polaris Bank</option>
+      <option value="101">Providus Bank</option>
+      <option value="221">Stanbic IBTC Bank</option>
+      <option value="068">Standard Chartered Bank</option>
+      <option value="232">Sterling Bank</option>
+      <option value="100">SunTrust Bank</option>
+      <option value="032">Union Bank of Nigeria</option>
+      <option value="033">United Bank for Africa (UBA)</option>
+      <option value="215">Unity Bank</option>
+      <option value="035">Wema Bank</option>
+      <option value="057">Zenith Bank</option>
+      <option value="090110">VFD Microfinance Bank</option>
+      <option value="090405">Moniepoint Microfinance Bank</option>
+      <option value="090175">Rubies MFB</option>
+      <option value="090267">Kuda Microfinance Bank</option>
+      <option value="090327">Paga MFB</option>
+      <option value="090360">Sparkle Microfinance Bank</option>
+      <option value="090286">NOVA Merchant Bank</option>
+      <option value="090115">TCF Microfinance Bank</option>
+      <option value="090177">LAPO Microfinance Bank</option>
+      <option value="090405">Opay</option>
+    </select>
+
+    <div style="font-size:15px;color:#777;margin-bottom:8px">Account number</div>
+    <input id="bankAccountNumber" type="text" inputmode="numeric" maxlength="10" placeholder="Enter 10-digit account number" oninput="checkAccountReady()">
+
+    <div id="verifyStatus" class="verify-status"></div>
+    <div id="accountNameBox" class="hidden" style="padding:14px;background:#f3fff7;border-radius:12px;margin-top:12px">
+      <div style="font-size:13px;color:#777">Account name</div>
+      <div id="accountName" class="account-name"></div>
+    </div>
+
+    <button id="verifyBankBtn" class="primary" onclick="verifyBankAccount()" disabled>VERIFY ACCOUNT</button>
+    <button id="saveBankBtn" class="secondary hidden" onclick="saveBankAccount()">SAVE BANK ACCOUNT</button>
+    <div id="savedBankBox" class="hidden" style="padding:14px;background:#eef8ff;border-radius:12px;margin-top:12px">
+      <div style="font-size:13px;color:#777">Saved bank account</div>
+      <div id="savedBankDetails" style="font-weight:700;margin-top:5px"></div>
+    </div>
+    <div style="font-size:12px;color:#777;margin-top:12px;line-height:1.5">After the secure bank-verification backend is connected, the selected bank and 10-digit account number will be sent for verification and the real account name returned by the provider will be displayed here.</div>
+  </div>
+</section>
+
+<!-- PROFILE PAGE -->
+<section id="profilePage" class="hidden profile-page">
+  <div class="profile-balance">
+    <div class="top">
+      <div class="label">Balance ↻</div>
+      <div class="amount">₦1,200.00</div>
+    </div>
+    <div class="stats">
+      <div><strong>₦0.00</strong><span>Deposit</span></div>
+      <div><strong>16+</strong><span>Products</span></div>
+      <div><strong>0.00</strong><span>Income</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">Quick Actions</div>
+  <div class="quick-profile">
+    <button onclick="alert('Recharge')"><span class="qico">▣</span>Recharge</button>
+    <button onclick="alert('Chest')"><span class="qico">🎁</span>Chest</button>
+    <button onclick="alert('Account records')"><span class="qico">▤</span>Account records</button>
+  </div>
+
+  <div class="profile-list">
+    <button onclick="alert('Security Password')"><span class="liico">ⓘ</span>Security Password</button>
+    <button onclick="alert('My Desperados')"><span class="liico">▰</span>My Desperados</button>
+    <button onclick="alert('Customer service')"><span class="liico">◉</span>Customer service</button>
+    <button onclick="alert('Withdrawal records')"><span class="liico">⇄</span>Withdrawal records</button>
+    <button onclick="alert('Recharge records')"><span class="liico">▤</span>Recharge records</button>
+    <button onclick="alert('Bank account management')"><span class="liico">♜</span>Bank account management</button>
+  </div>
+
+  <div style="height:20px"></div>
+  <div class="profile-nav" style="grid-template-columns:repeat(5,1fr)">
+    <button onclick="showHome()"><span class="ico">▣</span>Home</button>
+    <button onclick="alert('Income')"><span class="ico">▥</span>Income</button>
+    <button onclick="alert('Team')"><span class="ico">♟</span>Team</button>
+    <button onclick="alert('Share')"><span class="ico">↗</span>Share</button>
+    <button class="active"><span class="ico">▤</span>My</button>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="hidden">
+<div class="screen">
+<div class="banner">
+<div>
+MEGA EARN<br>ENERGY SOLUTION
+<small>Smart earning & energy solutions</small>
+</div>
+</div>
+
+<div class="quick">
+<button onclick="showDeposit()"><span class="ico">₦</span>Deposit</button>
+<button onclick="showWithdraw()"><span class="ico">⇩</span>Withdraw</button>
+<button onclick="alert('Bonus section')"><span class="ico">🎁</span>Bonus</button>
+<button onclick="showService()"><span class="ico">◎</span>Service</button>
+</div>
+
+<div class="balance">
+Wallet Balance
+<strong>₦3,000</strong>
+</div>
+
+<div class="notice">Demo dashboard: product figures below are placeholders. Connect a real backend before accepting payments or processing withdrawals.</div>
+
+<div class="card">
+<div class="product">
+<div class="product-img">ENERGY<br>PLAN</div>
+<div class="details">
+<p><span>Price</span><b>₦10,000</b></p>
+<p><span>Daily return</span><b>Demo</b></p>
+<p><span>Days</span><b>30</b></p>
+<p><span>Total return</span><b>Demo</b></p>
+</div>
+</div>
+<button class="buy" onclick="alert('Connect your payment/backend system to activate purchases.')">Buy now</button>
+</div>
+
+<div class="card">
+<div class="product">
+<div class="product-img">ENERGY<br>PLAN 2</div>
+<div class="details">
+<p><span>Price</span><b>₦25,000</b></p>
+<p><span>Daily return</span><b>Demo</b></p>
+<p><span>Days</span><b>60</b></p>
+<p><span>Total return</span><b>Demo</b></p>
+</div>
+</div>
+<button class="buy" onclick="alert('Connect your payment/backend system to activate purchases.')">Buy now</button>
+</div>
+</div>
+
+
+<div class="card">
+<div class="product">
+<div class="product-img">ENERGY<br>PLAN 3</div>
+<div class="details">
+<p><span>Price</span><b>₦50,000</b></p>
+<p><span>Daily return</span><b>Demo</b></p>
+<p><span>Days</span><b>90</b></p>
+<p><span>Total return</span><b>Demo</b></p>
+</div>
+</div>
+<button class="buy" onclick="alert('Connect your payment/backend system to activate purchases.')">Buy now</button>
+</div>
+
+<div class="card">
+<div class="product">
+<div class="product-img">ENERGY<br>PLAN 4</div>
+<div class="details">
+<p><span>Price</span><b>₦100,000</b></p>
+<p><span>Daily return</span><b>Demo</b></p>
+<p><span>Days</span><b>120</b></p>
+<p><span>Total return</span><b>Demo</b></p>
+</div>
+</div>
+<button class="buy" onclick="alert('Connect your payment/backend system to activate purchases.')">Buy now</button>
+</div>
+
+<div class="card">
+<div class="product">
+<div class="product-img">ENERGY<br>PLAN 5</div>
+<div class="details">
+<p><span>Price</span><b>₦250,000</b></p>
+<p><span>Daily return</span><b>Demo</b></p>
+<p><span>Days</span><b>180</b></p>
+<p><span>Total return</span><b>Demo</b></p>
+</div>
+</div>
+<button class="buy" onclick="alert('Connect your payment/backend system to activate purchases.')">Buy now</button>
+</div>
+
+<nav>
+<button class="active" onclick="showHome()"><span class="ico">▣</span>Home</button>
+<button onclick="alert('Income')"><span class="ico">▥</span>Income</button>
+<button onclick="alert('Team')"><span class="ico">♟</span>Team</button>
+<button onclick="alert('Share')"><span class="ico">↗</span>Share</button>
+<button onclick="showProfile()"><span class="ico">▤</span>My</button>
+</nav>
+</section>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+const countries = [
+["Afghanistan","+93","🇦🇫"],["Albania","+355","🇦🇱"],["Algeria","+213","🇩🇿"],["Andorra","+376","🇦🇩"],["Angola","+244","🇦🇴"],["Antigua and Barbuda","+1","🇦🇬"],["Argentina","+54","🇦🇷"],["Armenia","+374","🇦🇲"],["Australia","+61","🇦🇺"],["Austria","+43","🇦🇹"],["Azerbaijan","+994","🇦🇿"],
+["Bahamas","+1","🇧🇸"],["Bahrain","+973","🇧🇭"],["Bangladesh","+880","🇧🇩"],["Barbados","+1","🇧🇧"],["Belarus","+375","🇧🇾"],["Belgium","+32","🇧🇪"],["Belize","+501","🇧🇿"],["Benin","+229","🇧🇯"],["Bhutan","+975","🇧🇹"],["Bolivia","+591","🇧🇴"],["Bosnia and Herzegovina","+387","🇧🇦"],["Botswana","+267","🇧🇼"],["Brazil","+55","🇧🇷"],["Brunei","+673","🇧🇳"],["Bulgaria","+359","🇧🇬"],["Burkina Faso","+226","🇧🇫"],["Burundi","+257","🇧🇮"],
+["Cabo Verde","+238","🇨🇻"],["Cambodia","+855","🇰🇭"],["Cameroon","+237","🇨🇲"],["Canada","+1","🇨🇦"],["Central African Republic","+236","🇨🇫"],["Chad","+235","🇹🇩"],["Chile","+56","🇨🇱"],["China","+86","🇨🇳"],["Colombia","+57","🇨🇴"],["Comoros","+269","🇰🇲"],["Congo","+242","🇨🇬"],["Costa Rica","+506","🇨🇷"],["Croatia","+385","🇭🇷"],["Cuba","+53","🇨🇺"],["Cyprus","+357","🇨🇾"],["Czechia","+420","🇨🇿"],
+["Denmark","+45","🇩🇰"],["Djibouti","+253","🇩🇯"],["Dominica","+1","🇩🇲"],["Dominican Republic","+1","🇩🇴"],
+["Ecuador","+593","🇪🇨"],["Egypt","+20","🇪🇬"],["El Salvador","+503","🇸🇻"],["Equatorial Guinea","+240","🇬🇶"],["Eritrea","+291","🇪🇷"],["Estonia","+372","🇪🇪"],["Eswatini","+268","🇸🇿"],["Ethiopia","+251","🇪🇹"],
+["Fiji","+679","🇫🇯"],["Finland","+358","🇫🇮"],["France","+33","🇫🇷"],
+["Gabon","+241","🇬🇦"],["Gambia","+220","🇬🇲"],["Georgia","+995","🇬🇪"],["Germany","+49","🇩🇪"],["Ghana","+233","🇬🇭"],["Greece","+30","🇬🇷"],["Grenada","+1","🇬🇩"],["Guatemala","+502","🇬🇹"],["Guinea","+224","🇬🇳"],["Guinea-Bissau","+245","🇬🇼"],["Guyana","+592","🇬🇾"],
+["Haiti","+509","🇭🇹"],["Honduras","+504","🇭🇳"],["Hungary","+36","🇭🇺"],
+["Iceland","+354","🇮🇸"],["India","+91","🇮🇳"],["Indonesia","+62","🇮🇩"],["Iran","+98","🇮🇷"],["Iraq","+964","🇮🇶"],["Ireland","+353","🇮🇪"],["Israel","+972","🇮🇱"],["Italy","+39","🇮🇹"],["Ivory Coast","+225","🇨🇮"],
+["Jamaica","+1","🇯🇲"],["Japan","+81","🇯🇵"],["Jordan","+962","🇯🇴"],
+["Kazakhstan","+7","🇰🇿"],["Kenya","+254","🇰🇪"],["Kiribati","+686","🇰🇮"],["Kuwait","+965","🇰🇼"],["Kyrgyzstan","+996","🇰🇬"],
+["Laos","+856","🇱🇦"],["Latvia","+371","🇱🇻"],["Lebanon","+961","🇱🇧"],["Lesotho","+266","🇱🇸"],["Liberia","+231","🇱🇷"],["Libya","+218","🇱🇾"],["Liechtenstein","+423","🇱🇮"],["Lithuania","+370","🇱🇹"],["Luxembourg","+352","🇱🇺"],
+["Madagascar","+261","🇲🇬"],["Malawi","+265","🇲🇼"],["Malaysia","+60","🇲🇾"],["Maldives","+960","🇲🇻"],["Mali","+223","🇲🇱"],["Malta","+356","🇲🇹"],["Marshall Islands","+692","🇲🇭"],["Mauritania","+222","🇲🇷"],["Mauritius","+230","🇲🇺"],["Mexico","+52","🇲🇽"],["Micronesia","+691","🇫🇲"],["Moldova","+373","🇲🇩"],["Monaco","+377","🇲🇨"],["Mongolia","+976","🇲🇳"],["Montenegro","+382","🇲🇪"],["Morocco","+212","🇲🇦"],["Mozambique","+258","🇲🇿"],["Myanmar","+95","🇲🇲"],
+["Namibia","+264","🇳🇦"],["Nauru","+674","🇳🇷"],["Nepal","+977","🇳🇵"],["Netherlands","+31","🇳🇱"],["New Zealand","+64","🇳🇿"],["Nicaragua","+505","🇳🇮"],["Niger","+227","🇳🇪"],["Nigeria","+234","🇳🇬"],["North Korea","+850","🇰🇵"],["North Macedonia","+389","🇲🇰"],["Norway","+47","🇳🇴"],
+["Oman","+968","🇴🇲"],
+["Pakistan","+92","🇵🇰"],["Palau","+680","🇵🇼"],["Palestine","+970","🇵🇸"],["Panama","+507","🇵🇦"],["Papua New Guinea","+675","🇵🇬"],["Paraguay","+595","🇵🇾"],["Peru","+51","🇵🇪"],["Philippines","+63","🇵🇭"],["Poland","+48","🇵🇱"],["Portugal","+351","🇵🇹"],
+["Qatar","+974","🇶🇦"],
+["Romania","+40","🇷🇴"],["Russia","+7","🇷🇺"],["Rwanda","+250","🇷🇼"],
+["Saint Kitts and Nevis","+1","🇰🇳"],["Saint Lucia","+1","🇱🇨"],["Saint Vincent and the Grenadines","+1","🇻🇨"],["Samoa","+685","🇼🇸"],["San Marino","+378","🇸🇲"],["Sao Tome and Principe","+239","🇸🇹"],["Saudi Arabia","+966","🇸🇦"],["Senegal","+221","🇸🇳"],["Serbia","+381","🇷🇸"],["Seychelles","+248","🇸🇨"],["Sierra Leone","+232","🇸🇱"],["Singapore","+65","🇸🇬"],["Slovakia","+421","🇸🇰"],["Slovenia","+386","🇸🇮"],["Solomon Islands","+677","🇸🇧"],["Somalia","+252","🇸🇴"],["South Africa","+27","🇿🇦"],["South Korea","+82","🇰🇷"],["South Sudan","+211","🇸🇸"],["Spain","+34","🇪🇸"],["Sri Lanka","+94","🇱🇰"],["Sudan","+249","🇸🇩"],["Suriname","+597","🇸🇷"],["Sweden","+46","🇸🇪"],["Switzerland","+41","🇨🇭"],["Syria","+963","🇸🇾"],
+["Taiwan","+886","🇹🇼"],["Tajikistan","+992","🇹🇯"],["Tanzania","+255","🇹🇿"],["Thailand","+66","🇹🇭"],["Timor-Leste","+670","🇹🇱"],["Togo","+228","🇹🇬"],["Tonga","+676","🇹🇴"],["Trinidad and Tobago","+1","🇹🇹"],["Tunisia","+216","🇹🇳"],["Turkey","+90","🇹🇷"],["Turkmenistan","+993","🇹🇲"],["Tuvalu","+688","🇹🇻"],
+["Uganda","+256","🇺🇬"],["Ukraine","+380","🇺🇦"],["United Arab Emirates","+971","🇦🇪"],["United Kingdom","+44","🇬🇧"],["United States","+1","🇺🇸"],["Uruguay","+598","🇺🇾"],["Uzbekistan","+998","🇺🇿"],
+["Vanuatu","+678","🇻🇺"],["Vatican City","+39","🇻🇦"],["Venezuela","+58","🇻🇪"],["Vietnam","+84","🇻🇳"],
+["Yemen","+967","🇾🇪"],["Zambia","+260","🇿🇲"],["Zimbabwe","+263","🇿🇼"]
+];
+
+const countrySelect = document.getElementById('countryCode');
+countries.forEach(([name, code, flag]) => {
+  if(name === "Nigeria") return;
+  const option = document.createElement('option');
+  option.value = code;
+  option.textContent = `${flag} ${name} ${code}`;
+  countrySelect.appendChild(option);
+});
+
+function register(){
+  const firstName=document.getElementById('regFirstName').value.trim();
+  const lastName=document.getElementById('regLastName').value.trim();
+  const name=(firstName+' '+lastName).trim();
+  const email=document.getElementById('regEmail').value.trim();
+  const pass=document.getElementById('regPassword').value;
+  const countryCode=document.getElementById('countryCode').value;
+  if(!firstName||!lastName||!email||!pass){alert('Please complete the registration form.');return}
+  localStorage.setItem('megaEarnUser',JSON.stringify({name,firstName,lastName,email,pass,countryCode}));
+  alert('Registration successful. You can now log in.');
+  show('login');
+}
+function login(){
+  const saved=JSON.parse(localStorage.getItem('megaEarnUser')||'null');
+  const email=document.getElementById('loginEmail').value.trim();
+  const pass=document.getElementById('loginPassword').value;
+  if(!saved){alert('No account found. Please register first.');return}
+  if(email!==saved.email||pass!==saved.pass){alert('Incorrect email or password.');return}
+  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('register').classList.add('hidden');
+}
+
+function hideMainSections(){
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('profilePage').classList.add('hidden');
+  document.getElementById('depositPage').classList.add('hidden');
+  document.getElementById('servicePage').classList.add('hidden');
+  document.getElementById('withdrawPage').classList.add('hidden');
+}
+
+function showProfile(){
+  hideMainSections();
+  document.getElementById('profilePage').classList.remove('hidden');
+}
+
+function showHome(){
+  hideMainSections();
+  document.getElementById('dashboard').classList.remove('hidden');
+}
+
+function showDeposit(){
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('depositPage').classList.remove('hidden');
+}
+
+function backToDashboard(){
+  document.getElementById('depositPage').classList.add('hidden');
+  document.getElementById('servicePage').classList.add('hidden');
+  document.getElementById('profilePage').classList.add('hidden');
+  document.getElementById('withdrawPage').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+}
+
+function showWithdraw(){
+  hideMainSections();
+  document.getElementById('withdrawPage').classList.remove('hidden');
+  document.getElementById('withdrawAmount').value='';
+  document.getElementById('bankAccountNumber').value='';
+  document.getElementById('bankSelect').value='';
+  document.getElementById('verifyBankBtn').disabled=true;
+  document.getElementById('verifyStatus').className='verify-status';
+  document.getElementById('verifyStatus').textContent='';
+  document.getElementById('accountNameBox').classList.add('hidden');
+  document.getElementById('saveBankBtn').classList.add('hidden');
+  document.getElementById('savedBankBox').classList.add('hidden');
+}
+
+function checkAccountReady(){
+  const amount=Number(document.getElementById('withdrawAmount').value||0);
+  const bank=document.getElementById('bankSelect').value;
+  const acct=document.getElementById('bankAccountNumber').value.replace(/\D/g,'');
+  document.getElementById('bankAccountNumber').value=acct;
+  const amountStatus=document.getElementById('withdrawAmountStatus');
+  if(document.getElementById('withdrawAmount').value && amount<700){
+    amountStatus.textContent='Minimum withdrawal is ₦700.';
+    amountStatus.style.color='#c62828';
+  }else{
+    amountStatus.textContent='Minimum withdrawal: ₦700';
+    amountStatus.style.color='#777';
+  }
+  document.getElementById('verifyBankBtn').disabled=!(amount>=700 && bank && acct.length===10);
+}
+
+async function verifyBankAccount(){
+  const amount=Number(document.getElementById('withdrawAmount').value||0);
+  const bank=document.getElementById('bankSelect').value;
+  const acct=document.getElementById('bankAccountNumber').value.replace(/\D/g,'');
+  const status=document.getElementById('verifyStatus');
+  if(amount<700){
+    status.className='verify-status error';
+    status.textContent='Minimum withdrawal amount is ₦700.';
+    return;
+  }
+  if(!bank || acct.length!==10){
+    status.className='verify-status error';
+    status.textContent='Select a bank and enter a valid 10-digit account number.';
+    return;
+  }
+  status.className='verify-status loading';
+  status.textContent='Verifying account name…';
+  document.getElementById('accountNameBox').classList.add('hidden');
+
+  try{
+    // Secure backend endpoint required. Do NOT put a Paystack secret key in this HTML file.
+    const response=await fetch('/api/verify-account',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({bank_code:bank,account_number:acct})
+    });
+    const data=await response.json();
+    if(!response.ok || !data.status || !data.account_name) throw new Error(data.message || 'Account could not be verified.');
+    document.getElementById('accountName').textContent=data.account_name;
+    document.getElementById('accountNameBox').classList.remove('hidden');
+    document.getElementById('saveBankBtn').classList.remove('hidden');
+    status.className='verify-status success';
+    status.textContent='✓ Account verified successfully.';
+  }catch(err){
+    status.className='verify-status error';
+    status.textContent='Verification is not connected yet. Add the secure bank-verification backend to verify the real account name.';
+  }
+}
+
+
+function saveBankAccount(){
+  const select=document.getElementById('bankSelect');
+  const bankCode=select.value;
+  const bankName=select.options[select.selectedIndex]?.text || '';
+  const accountNumber=document.getElementById('bankAccountNumber').value;
+  const accountName=document.getElementById('accountName').textContent.trim();
+  if(!bankCode || accountNumber.length!==10 || !accountName){
+    alert('Please verify the bank account before saving it.');
+    return;
+  }
+  const saved={bankCode,bankName,accountNumber,accountName};
+  localStorage.setItem('megaEarnBankAccount',JSON.stringify(saved));
+  document.getElementById('savedBankDetails').textContent=bankName+' • '+accountName+' • ******'+accountNumber.slice(-4);
+  document.getElementById('savedBankBox').classList.remove('hidden');
+  alert('Bank account saved successfully.');
+}
+
+function loadSavedBankAccount(){
+  const saved=JSON.parse(localStorage.getItem('megaEarnBankAccount')||'null');
+  if(!saved) return;
+  const select=document.getElementById('bankSelect');
+  const option=[...select.options].find(o=>o.value===saved.bankCode);
+  if(option){
+    select.value=saved.bankCode;
+    document.getElementById('bankAccountNumber').value=saved.accountNumber;
+    document.getElementById('accountName').textContent=saved.accountName;
+    document.getElementById('accountNameBox').classList.remove('hidden');
+    document.getElementById('savedBankDetails').textContent=saved.bankName+' • '+saved.accountName+' • ******'+saved.accountNumber.slice(-4);
+    document.getElementById('savedBankBox').classList.remove('hidden');
+  }
+}
+
+function showService(){
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('servicePage').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
